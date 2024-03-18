@@ -1,6 +1,6 @@
 package homework;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Program {
 
@@ -24,8 +24,28 @@ public class Program {
      */
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Box<Apple> appleBox = new Box<>();
+        Box<Orange> orangeBox = new Box<>();
+
+        System.out.print("Сколько упаковок яблок вы хотите убрать в коробку: ");
+        double weightApples = scanner.nextFloat();
+        for (int i = 0; i < weightApples; i++) {
+            appleBox.addFruit(new Apple());
+        }
+
+        System.out.print("Сколько упаковок апельсинов вы хотите убрать в коробку: ");
+        double weightOranges = scanner.nextFloat();
+        for (int i = 0; i < weightOranges; i++) {
+            orangeBox.addFruit(new Orange());
+        }
+
+        System.out.println("Вес коробки с яблоками: " + appleBox.getWeight() + " кг");
+        System.out.println("Вес коробки с апельсинами: " + orangeBox.getWeight() + " кг");
+
+        System.out.println("Сравнение веса коробок: " + appleBox.compare(orangeBox));
 
 
     }
-
 }
